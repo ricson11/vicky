@@ -1,0 +1,23 @@
+{{>_header}}
+
+<div class="container my-4 col-md-6">
+   {{#if searches}}
+   <p class="text-center text-danger">Search results for {{query}}</p>
+  {{#each searches}}
+   <div class="card  ">
+    
+         <img class="card-top" src="{{image.[0]}}" width="" alt="blog image">
+      <div class="card-body">
+        <a href="/post/{{_id}}"><h5 class="card-title">{{title}}</h5></a>
+        <p class="card-text">{{{ truncate details 80}}}</p>
+      <a href="/post/{{_id}}"><span class="badge badge-danger p-2">readmore</span></a>
+
+      </div>
+   </div>
+   {{/each }}
+  {{else}}
+ <p class="text-center text-danger">No search result for {{query}} found</p>
+ {{/if}}
+</div>
+
+{{>_footer}}

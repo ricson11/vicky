@@ -1,0 +1,156 @@
+{{>_header}}
+
+       <div class="container my-4 d-none d-md-block">
+             <form action="/search" method="GET">
+            <div class="input-group">
+                <input type="search" class="form-control" name="query" placeholder="search..." id="admin-search">
+                <div class="input-group-append">
+                    <button class="btn btn-danger" type="submit">Search</button>
+                </div>
+            </div>
+            </form>
+          </div>
+
+<div class="container">
+  <h5 class="text-center my-4" id="card">Blog Posts</h5>
+<div class="card-group">
+  {{#if posts}}
+  {{#each posts}}
+  <div class="card ">
+   
+      <a href="/{{image.[0]}}" download> <img class="card-top" src="{{image.[0]}}" width="" alt="blog image"></a>
+      <div class="card-body">
+        <a href="/post/{{_id}}"><h5 class="card-title">{{title}}</h5></a>
+        <p class="card-text">{{{ truncate details 60}}}</p>
+      <a href="/post/{{_id}}"><span class="badge badge-danger p-2">readmore</span></a>
+
+      </div>
+   
+  </div>
+  {{/each}}
+   {{ else }}
+  <p class="text-center">No post yet</p>
+  {{/if}}
+   
+   {{#if post1}}
+   {{#each post1}}
+   <div class="card mx-md-2 ">
+   
+      
+       <img class="card-top" src="{{image.[0]}}" width="" alt="blog image">
+      <div class="card-body">
+        <a href="/post/{{_id}}"><h5 class="card-title">{{title}}</h5></a>
+        <p class="card-text">{{{ truncate details 60}}}</p>
+      <a href="/post/{{_id}}"><span class="badge badge-danger p-2">readmore</span></a>
+
+      </div>
+   
+  </div>
+   {{/each}}
+   {{ else }}
+  <p class="text-center">No post yet</p>
+  {{/if}}
+  
+  {{#if post2}}
+  {{#each post2}}
+   <div class="card  ">
+    
+         <img class="card-top" src="{{image.[0]}}" width="" alt="blog image">
+      <div class="card-body">
+        <a href="/post/{{_id}}"><h5 class="card-title">{{title}}</h5></a>
+        <p class="card-text">{{{ truncate details 60}}}</p>
+      <a href="/post/{{_id}}"><span class="badge badge-danger p-2">readmore</span></a>
+
+      </div>
+   </div>
+    {{/each}}
+   {{ else }}
+  <p class="text-center">No post yet</p>
+  {{/if}}
+  </div>
+</div>
+
+
+<div class="container">
+  <h5 class="text-center my-4" id="card">Recent Blog Posts</h5>
+<div class="card-group">
+   {{#if recent}}
+  {{#each recent}}
+  <div class="card ">
+   
+       <img class="card-top" src="{{image.[0]}}" width="" alt="blog image">
+      <div class="card-body">
+        <a href="/post/{{_id}}"><h5 class="card-title">{{title}}</h5></a>
+        <p class="card-text">{{{ truncate details 60}}}</p>
+      <a href="/post/{{_id}}"><span class="badge badge-danger p-2">readmore</span></a>
+
+      </div>
+   
+  </div>
+   {{/each}}
+   {{ else }}
+  <p class="text-center">No post yet</p>
+  {{/if}}
+   
+   {{#if recent1}}
+   {{#each recent1}}
+   <div class="card mx-md-2 ">
+   
+      
+       <img class="card-top" src="{{image.[0]}}" width="" alt="blog image">
+      <div class="card-body">
+        <a href="/post/{{_id}}"><h5 class="card-title">{{title}}</h5></a>
+        <p class="card-text">{{{ truncate details 60}}}</p>
+      <a href="/post/{{_id}}"><span class="badge badge-danger p-2">readmore</span></a>
+
+      </div>
+   
+  </div>
+   {{/each}}
+   {{ else }}
+  <p class="text-center">No post yet</p>
+  {{/if}}
+  
+  {{#if recent2}}
+  {{#each recent2}}
+   <div class="card  ">
+    
+         <img class="card-top" src="{{image.[0]}}" width="" alt="blog image">
+      <div class="card-body">
+        <a href="/post/{{_id}}"><h5 class="card-title">{{title}}</h5></a>
+        <p class="card-text">{{{ truncate details 60}}}</p>
+      <a href="/post/{{_id}}"><span class="badge badge-danger p-2">readmore</span></a>
+
+      </div>
+   </div>
+    {{/each}}
+   {{ else }}
+  <p class="text-center">No post yet</p>
+  {{/if}}
+  </div>
+</div>
+
+
+
+<div class="container-fluid my-4" id="contents">
+      <h5 class="text-center my-4" id="card">The Owner</h5>
+      <div class="row">
+        <div class="col-md-2">
+<img class="" id="owner" src="/images/ad1.jpg" width="200px" height="200px" alt="Owner image">
+       <span class="badge badge-danger p-2 my-2 text-center ml-5 " id="me">Elizabeth James</span>
+   
+        </div>
+         <div class="col-md-10">
+         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste odio corrupti nam minus enim ratione quisquam, assumenda neque eius illum magna
+            odit incidunt provident ipsa non dolorum, culpa, rem aut.</p> 
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est cumque quas voluptatum quidem quos numquam praesentium vitae aut dolorum iure, reprehenderit doloribus
+             cupiditate quae. Ullam autem in architecto ea beatae.</p>
+       <span> <p class="mt-5">Follow me on </p>
+       <i class="fa fa-facebook"></i> <i class="fa fa-twitter"></i>
+       <i class="fa fa-instagram"></i> <i class="fa fa-pinterest"></i></span>
+        </div>
+      </div>
+</div>
+
+
+{{>_footer}}

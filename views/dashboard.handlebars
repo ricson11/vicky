@@ -1,0 +1,76 @@
+{{>_header2}}
+{{>_msg}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 bg-danger">
+          <div class="container">
+             <form action="/search" method="GET">
+            <div class="input-group">
+                <input type="search" class="form-control" name="query" placeholder="search..." id="admin-search">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </div>
+            </form>
+          </div>
+            <p class="text-center mt-3 text-white">Today is {{formatDate date " dddd, MMM DD yyyy"}}</p>
+            <img class="d-block mx-auto" src="{{user.photo}}" id="admin-image" alt="">
+             <p class="text-center text-white"> Welcome {{user.username}}!</p>
+         <p class="text-center text-white">You are signed in</p>
+          <a href="/admin/logout"><p class="text-center text-white">Log out <i class="fa fa-arrow-right"></i></p></a>
+
+       
+        </div>
+         <div class="col-lg-9 text-center">
+            <h5 class="text-center my-3">All Posts</h5>
+            {{#if posts}}
+            {{#each posts}}
+              <a href="/post/{{_id}}"><h5 class="text-center">{{title}}</h5></a>
+            <div class="container d-flex justify-content-between all-post">
+              <a href="/post/edit/{{_id}}"><i class="fa fa-pencil"> Edit</i></a>
+              <a href="/post/delete/{{_id}}"><i class="fa fa-trash">Delete </i></a>
+            </div>
+            {{ else }}
+            <p class="text-center">No post yet</p>
+            {{/each}}
+            {{/if}}
+            <div class="container my-4 d-flex justify-content-between">
+              {{#if previous}}
+               <a href="?page={{previous}}" class="text-danger" id="prev">Previous Posts</a>
+               {{/if}}
+               {{#if next}}
+              <a href="?page={{next}}" class="text-danger" id="prev">Next Posts</a>
+               {{/if}}
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>_footer2}}
+<style>
+    #myAdmin{
+                color: white;
+                font-weight:bold;
+    }
+    .nav a{
+         font-weight: lighter;    
+    }
+    .all-post{
+        border-bottom: 2px solid red;
+    }
+    #admin-image{
+        width:200px;
+        height:200px;
+        border-radius: 50%;
+        
+    }
+    #admin-search{
+        background-color: ghostwhite;
+    }
+    #prev{
+      font-weight: bold;
+      font-size: 1.1em;
+      text-decoration: none;
+    }
+</style>

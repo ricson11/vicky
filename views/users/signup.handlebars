@@ -1,0 +1,116 @@
+{{>_header}}
+{{>_msg}}
+<div class="container my-4" id="login-content">
+    <h5 class="text-center my-3">Admin Signup</h5>
+    <form action="/admin/signup"  method="POST" enctype="multipart/form-data" >
+ <div class="form-group">
+     <label for="username">Username</label>
+     <input type="text" name="username" class="form-control" value="{{username}}">
+ </div>
+  <div class="form-group">
+     <label for="email">Email</label>
+     <input type="email" name="email" class="form-control" value="{{email}}">
+ </div>
+
+     <div class="form-group">
+         <label for="photo">Upload Photo</label><br>
+     <input type="file"  name="photo" accept="image/jpg, image/jpeg, image/png" onchange="loadFile(event)" id="put">
+   <br> <br><img id="output" />
+   <p class="text center " id="times">Remove file</p>
+    </div>
+ <div class="form-group">
+     <label for="password">Password</label>
+     <input type="password" name="password" class="form-control" id="passer" value="{{password}}">
+ </div>
+ 
+ <div class="form-group">
+     <input type="checkbox" onclick="myFunction()">
+     Show password
+ </div>
+ <div class="form-group">
+     <button class="btn btn-danger">Signup</button>
+ </div>
+</form>
+
+<div class="container  ">
+    <a class=" text-white" href="/admin/login">Login here</a>
+</div>
+</div>
+{{>_footer}}
+
+
+
+<style>
+  
+   #login-content{
+    background-color: rgba(255, 0, 0, 0.515);
+    padding:10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px;
+    color:white;
+    
+}
+
+
+    #prev{
+      font-weight: bold;
+      font-size: 1.1em;
+      text-decoration: none;
+    }
+      #output{
+       width:250px;
+       height:250px;
+       background-color: grey;
+      display: none;
+      margin: auto;
+      
+   }
+   #times{
+        background-color: rgba(255, 0, 0, 0.583);
+        width:fit-content;
+        padding:5px;
+        margin-left: 5em;
+        margin-top:19px;
+        box-shadow: 0px 2px 2px grey;
+        border-radius: 10px;
+        color:white;    
+        cursor: pointer;
+        display:none;
+        margin: auto;
+
+   }
+   #times:active{
+       background-color: grey;
+   }
+
+</style>
+
+<script>
+    
+
+var times = document.getElementById('times')
+var put = document.getElementById('put')
+
+var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+   
+    output.style.display='block';
+    times.style.display='block';
+    
+  };
+
+
+
+  times.addEventListener('click', function(){
+      output.style.display='none';
+     put.value=null;
+     times.style.display='none';
+     
+  })
+  
+</script>

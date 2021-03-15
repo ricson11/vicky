@@ -1,0 +1,54 @@
+<div class="container-fluid    d-md-flex justify-content-between sticky-top" id="header">
+   
+      
+<div class="logo d-none d-md-block">
+ 
+      <h5 class="text-center text-white "><a href="/">Vicky Interior Designs </a></h5>
+      <p>We comfort your home</p>
+
+</div>
+<div class="container-fluid d-flex justify-content-between d-md-none">
+ <i class="fa fa-bars " id="bars"></i>
+ <i class="fa fa-remove" id="remove"></i>
+ <div class="logo2">
+      <h5 class="text-center text-white"><a href="/">Vicky Interior Designs </a></h5>
+      <p>We comfort your home</p>
+
+ </div>
+   
+    <i class="fa fa-search" id="searchbar"></i>
+
+</div>
+ <i class="fa fa-remove d-md-none" id="remove2"></i>
+
+<div class="container d-md-none" id="searchForm">
+  <form action="/search" method="GET">
+    <div class="form-group">
+      <input type="search" class="form-control" name="query" id="searchInput" placeholder="To search type and hit your enter key...">
+    </div>
+  </form>
+</div>
+<ul class="nav" id="nav1">
+  <li class="nav-link" ><a href="/about" >About</a></li>
+    <li class="nav-link"><a href="/testimonies">Testimonies</a></li>
+
+    <li class="nav-link" ><a href="/services">Services</a></li>
+ 
+  <li class="nav-link"><a href="/blog"> Blog</a></li>
+
+    {{#if user}}
+    <li class="nav-link"><a href="/dashboard"> Admin Dashboard</a></li>
+    {{/if}}
+</ul>
+ <ul class="nav" id="nav2">
+    <li class="nav-link"> <a href="whatsapp://send?text=Hi! welcome to vicky interior designs, how may we help you ?&phone=+2349033662731" id="what">Whatsapp <i class="fa fa-whatsapp"></i></a> </li>
+        <li class="nav-link"><a href="mailto:ask4menow247@gmail.com">Email <i class="fa fa-envelope"></i></a> </li>
+    <li class="nav-link"><a href="tel:09033662731">Call <i class="fa fa-phone"></i> 090vickyinterior </a></li>
+
+  </ul>
+ 
+   <p class="time d-none d-xl-block">Office hour: 8am-6pm mon-fri</p>
+  
+
+</div>
+
