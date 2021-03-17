@@ -14,11 +14,11 @@
             </form>
           </div>
 
-            <p class="text-center mt-3 text-white">Today is {{formatDate date " dddd, MMM DD yyyy"}}</p>
-            <img class="d-block mx-auto" src="/images/ad1.jpg" id="admin-image">
-             <p class="text-center text-white"> Welcome admin Desto!</p>
+           <p class="text-center mt-3 text-white">Today is {{formatDate date " dddd, MMM DD yyyy"}}</p>
+            <img class="d-block mx-auto" src="{{user.photo}}" id="admin-image" alt="">
+             <p class="text-center text-white"> Welcome {{user.username}}!</p>
          <p class="text-center text-white">You are signed in</p>
-           <p class="text-center text-white">Log out <i class="fa fa-arrow-right"></i></p>
+          <a href="/admin/logout"><p class="text-center text-white">Log out <i class="fa fa-arrow-right"></i></p></a>
 
        
         </div>

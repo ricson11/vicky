@@ -24,15 +24,24 @@ router.get('/', async(req, res)=>{
 });
 
 
-router.get('/about', (req, res)=>{
-    res.render('about')
+router.get('/about', async(req, res)=>{
+    const posts = await Post.find({}).sort({date:-1}).limit(1)
+    const posts1 = await Post.find({}).sort({date:-1}).skip(1).limit(1)
+    const posts2 = await Post.find({}).sort({date:-1}).skip(2).limit(1)
+    res.render('about', {posts, posts1, posts2})
 })
 
-router.get('/services', (req, res)=>{
-    res.render('services')
+router.get('/services', async(req, res)=>{
+    const posts = await Post.find({}).sort({date:-1}).limit(1)
+    const posts1 = await Post.find({}).sort({date:-1}).skip(1).limit(1)
+    const posts2 = await Post.find({}).sort({date:-1}).skip(2).limit(1)
+    res.render('services', {posts, posts1, posts2})
 })
-router.get('/testimonies', (req, res)=>{
-    res.render('testimonies')
+router.get('/testimonies', async(req, res)=>{
+    const posts = await Post.find({}).sort({date:-1}).limit(1)
+    const posts1 = await Post.find({}).sort({date:-1}).skip(1).limit(1)
+    const posts2 = await Post.find({}).sort({date:-1}).skip(2).limit(1)
+    res.render('testimonies', {posts, posts1, posts2})
 })
 router.get('/blog', async(req, res)=>{
     const posts = await Post.find({}).sort({date:-1}).limit(1);
@@ -192,10 +201,11 @@ router.get('/post/delete/:id',async (req, res)=>{
         if(!post){
             res.redirect('/dashboard')
         } 
-      cloudinary.v2.uploader.destroy(post.cloudinary_id)   
+      cloudinary.api.delete_resources(post.cloudinary_id)   
 
      Post.deleteOne({_id:req.params.id})
      .then(()=>{
+         req.flash('success_msg', 'Post deleted successfully')
          res.redirect('/dashboard')
      })
     }

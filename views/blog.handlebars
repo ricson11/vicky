@@ -18,7 +18,7 @@
   {{#each posts}}
   <div class="card ">
    
-      <a href="/{{image.[0]}}" download> <img class="card-top" src="{{image.[0]}}" width="" alt="blog image"></a>
+       <img class="card-top" src="{{image.[0]}}" width="" alt="blog image">
       <div class="card-body">
         <a href="/post/{{_id}}"><h5 class="card-title">{{title}}</h5></a>
         <p class="card-text">{{{ truncate details 60}}}</p>
@@ -28,8 +28,7 @@
    
   </div>
   {{/each}}
-   {{ else }}
-  <p class="text-center">No post yet</p>
+  
   {{/if}}
    
    {{#if post1}}
@@ -47,8 +46,7 @@
    
   </div>
    {{/each}}
-   {{ else }}
-  <p class="text-center">No post yet</p>
+  
   {{/if}}
   
   {{#if post2}}
@@ -64,8 +62,7 @@
       </div>
    </div>
     {{/each}}
-   {{ else }}
-  <p class="text-center">No post yet</p>
+  
   {{/if}}
   </div>
 </div>
@@ -89,7 +86,7 @@
   </div>
    {{/each}}
    {{ else }}
-  <p class="text-center">No post yet</p>
+   <p class="text-center">No recent post yet</p>
   {{/if}}
    
    {{#if recent1}}
@@ -107,8 +104,7 @@
    
   </div>
    {{/each}}
-   {{ else }}
-  <p class="text-center">No post yet</p>
+ 
   {{/if}}
   
   {{#if recent2}}
@@ -124,8 +120,7 @@
       </div>
    </div>
     {{/each}}
-   {{ else }}
-  <p class="text-center">No post yet</p>
+  
   {{/if}}
   </div>
 </div>
@@ -136,9 +131,9 @@
       <h5 class="text-center my-4" id="card">The Owner</h5>
       <div class="row">
         <div class="col-md-2">
-<img class="" id="owner" src="/images/ad1.jpg" width="200px" height="200px" alt="Owner image">
-       <span class="badge badge-danger p-2 my-2 text-center ml-5 " id="me">Elizabeth James</span>
-   
+<img class="d-block mx-auto" id="owner" src="/images/staff3.jpg" width="200px" height="200px" alt="Owner image">
+       <span class="badge badge-danger p-2 my-2 text-center ml-5 " id="me">Desto James</span>
+
         </div>
          <div class="col-md-10">
          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste odio corrupti nam minus enim ratione quisquam, assumenda neque eius illum magna
