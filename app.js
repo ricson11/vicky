@@ -90,7 +90,9 @@ app.use('/ckeditor', express.static(__dirname + '/node_modules/ckeditor'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-const port=700
-app.listen(port, ()=>console.log('Server is running on port,'+''+ 700))
-//app.set('port,'||process.env.port);
-//app.listen(app.get('port'),()=>console.log('Server is running on port', app.get('port')))
+ //const port =700;
+//app.listen(port, ()=>console.log('Server is running on port,'+''+ 700))
+
+app.set('port', process.env.PORT || 700);
+app.listen(app.get('port'),()=>console.log('server is running on port' + " "+ app.get('port')));
+
