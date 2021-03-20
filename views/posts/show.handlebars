@@ -79,9 +79,9 @@
     
     <div class="col-md-4" >
            
-        
+         {{#if popular}}
         <h5 class="text-center my-4">Popular Posts</h5>
-          {{#if popular}}
+         
          {{#each popular}}
      <div class="card my-2">
          <div class="card-header">
@@ -94,8 +94,9 @@
      </div>
     {{/each}}
     {{/if}}
+      {{#if recent}}
       <h5 class="text-center my-4">Recent Posts</h5>
-         {{#if recent}}
+       
          {{#each recent}}
      <div class="card my-2">
          <img class="card-img-top" src="{{image.[0]}}" height="300px" >
@@ -105,8 +106,10 @@
      </div>
       {{/each}}
     {{/if}}
+      
+        {{#if similar}}
        <h5 class="text-center my-4">Similar Posts</h5>
-             {{#if similar}}
+            
             {{#each similar}}
      <div class="card my-2">
            <img class="card-img-top" src="{{image.[0]}}" height="300px">
