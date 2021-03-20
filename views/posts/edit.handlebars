@@ -26,7 +26,7 @@
           
 <div class="container my-4">
     <h5 class="text-center my-3">Edit Post</h5>
-    <form action="/post/{{post._id}}?_method=PUT" enctype="multipart/form-data" method="POST">
+    <form action="/post/{{post.slug}}?_method=PUT" enctype="multipart/form-data" method="POST">
   <input type="hidden" name="_method" value="PUT">
     <div class="form-group">
         <label for="title my-4">Post title</label>

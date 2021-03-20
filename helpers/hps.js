@@ -1,7 +1,4 @@
-const moment = require('moment');
-
-require('../models/Post');
-
+const moment = require('moment')
 
 
 module.exports={

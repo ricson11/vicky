@@ -3,6 +3,7 @@
 <div class="container-fluid my-4">
    <div class="row">
     <div class="col-md-8">
+   
          <a href=""><h5 class="text-center" id="showTitle">{{post.title}}</h5></a>
    <p class="text-center">Posted on <i class="fa fa-clock-o"> {{formatDate post.date "MMM MM, YYYY  h:mm a" }}</i> by <i class="fa fa-user"> admin</i></p>
     <p class="text-center my-3">{{{post.details}}}</p>
@@ -47,7 +48,7 @@
    
 <div class="container my-5">
   <h5 class="text-center mb-4">Add Comment</h5>
-  <form action="/comment/post/{{post.id}}" method='POST'>
+  <form action="/comment/post/{{post.slug}}" method='POST'>
   <div class="form-group">
     <textarea name="commentBody" rows="5" class="form-control" placeholder="Comment..."></textarea>
   </div>
@@ -88,7 +89,7 @@
          </div>
          <img class="card-img-top" src="{{image.[0]}}" height="300px">
         <div class="card-body">
-          <a href="/post/{{_id}}" ><h5 class="card-title">{{title}}</h5> </a>
+          <a href="/post/{{slug}}" ><h5 class="card-title">{{title}}</h5> </a>
         </div> 
      </div>
     {{/each}}
@@ -99,7 +100,7 @@
      <div class="card my-2">
          <img class="card-img-top" src="{{image.[0]}}" height="300px" >
         <div class="card-body">
-          <a href="/post/{{post._id}}" ><h5 class="card-title">{{title}}</h5> </a>
+          <a href="/post/{{post.slug}}" ><h5 class="card-title">{{title}}</h5> </a>
         </div> 
      </div>
       {{/each}}
@@ -110,7 +111,7 @@
      <div class="card my-2">
            <img class="card-img-top" src="{{image.[0]}}" height="300px">
         <div class="card-body">
-          <a href="/post/{{_id}}" ><h5 class="card-title">{{title}}</h5> </a>
+          <a href="/post/{{slug}}" ><h5 class="card-title">{{title}}</h5> </a>
         </div> 
      </div>
       {{/each}}

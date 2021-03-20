@@ -11,6 +11,9 @@ const passport = require('passport');
 const MongoStore = require('connect-mongo')(session);
 const env =  require('dotenv')
 const path = require('path');
+//var MomentHandler = require("handlebars.moment");
+//MomentHandler.registerHelpers(Handlebars);
+
 const {allowInsecurePrototypeAccess}=require('@handlebars/allow-prototype-access');
 
 const {formatDate, formatTime, truncate, stripTags}=require('./helpers/hps');

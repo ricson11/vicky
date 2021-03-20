@@ -25,10 +25,10 @@
             <h5 class="text-center my-3">All Posts</h5>
             {{#if posts}}
             {{#each posts}}
-              <a href="/post/{{_id}}"><h5 class="text-center">{{title}}</h5></a>
+              <a href="/post/{{slug}}"><h5 class="text-center">{{title}}</h5></a>
             <div class="container d-flex justify-content-between all-post">
-              <a href="/post/edit/{{_id}}"><i class="fa fa-pencil"> Edit</i></a>
-              <a href="/post/delete/{{_id}}"><i class="fa fa-trash">Delete </i></a>
+              <a href="/post/edit/{{slug}}"><i class="fa fa-pencil"> Edit</i></a>
+              <a href="/post/delete/{{slug}}"><i class="fa fa-trash">Delete </i></a>
             </div>
             {{ else }}
             <p class="text-center">No post yet</p>

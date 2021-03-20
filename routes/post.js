@@ -102,10 +102,10 @@ catch(err){
  
 })
 
-router.get('/post/:id', async(req, res)=>{
+router.get('/post/:slug', async(req, res)=>{
 
     try{
-        const post = await Post.findOne({_id:req.params.id})
+        const post = await Post.findOne({slug:req.params.slug})
        
         post.views++;
         post.save();
@@ -123,9 +123,9 @@ router.get('/post/:id', async(req, res)=>{
 
 })
 
-router.get('/post/edit/:id', async(req, res)=>{
+router.get('/post/edit/:slug', async(req, res)=>{
     try{
-    const post = await Post.findOne({_id:req.params.id})
+    const post = await Post.findOne({slug:req.params.slug})
     
     res.render('posts/edit', {post})
     }
@@ -135,15 +135,15 @@ router.get('/post/edit/:id', async(req, res)=>{
 })
 
 
-router.put('/post/:id', upload.array('image'), async(req, res)=>{
+router.put('/post/:slug', upload.array('image'), async(req, res)=>{
   
     try{
     if(req.files){
-    const post = await Post.findOne({_id:req.params.id})
+    const post = await Post.findOne({slug:req.params.slug})
     if(!post){
      res.redirect('/dashboard')
     } 
-    cloudinary.v2.uploader.destroy(post.cloudinary_id)   
+    cloudinary.api.delete_resources(post.cloudinary_id)    
     if(req.method === 'PUT'){
         const urls = [];
         const files = req.files;
@@ -154,7 +154,7 @@ router.put('/post/:id', upload.array('image'), async(req, res)=>{
     
         } 
       
-         Post.findOne({_id: req.params.id})
+         Post.findOne({slug: req.params.slug})
          .then(post=>{
              post.title = req.body.title,
              post.details = req.body.details,
@@ -170,7 +170,7 @@ router.put('/post/:id', upload.array('image'), async(req, res)=>{
            
     }
 }else{
-    Post.findOne({_id: req.params.id})
+    Post.findOne({slug: req.params.slug})
          .then(post=>{
              post.title = req.body.title,
              post.details = req.body.details,
@@ -195,15 +195,15 @@ catch(err){
 
 
 
-router.get('/post/delete/:id',async (req, res)=>{
+router.get('/post/delete/:slug',async (req, res)=>{
     try{
-        const post = await Post.findOne({_id: req.params.id})
+        const post = await Post.findOne({slug: req.params.slug})
         if(!post){
             res.redirect('/dashboard')
         } 
       cloudinary.api.delete_resources(post.cloudinary_id)   
 
-     Post.deleteOne({_id:req.params.id})
+     Post.deleteOne({slug:req.params.slug})
      .then(()=>{
          req.flash('success_msg', 'Post deleted successfully')
          res.redirect('/dashboard')
@@ -248,8 +248,8 @@ router.get('/post/delete/:id',async (req, res)=>{
     }
 })*/
 
-router.post('/comment/post/:id', (req, res)=>{
-    Post.findOne({_id:req.params.id})
+router.post('/comment/post/:slug', (req, res)=>{
+    Post.findOne({slug:req.params.slug})
     .then(post=>{
         const newComment={
             commentBody: req.body.commentBody
@@ -258,14 +258,14 @@ router.post('/comment/post/:id', (req, res)=>{
         post.save()
         .then(post=>{
             console.log(post)
-            res.redirect('/post/'+ post._id)
+            res.redirect('/post/'+ post.slug)
         })
     })
 })
 
 
-router.get('/comment/post/:id', (req, res)=>{
-    Post.findOne({_id:req.params.id})
+router.get('/comment/post/:slug', (req, res)=>{
+    Post.findOne({slug:req.params.slug})
     .then(post=>{
         res.render('posts/show', {post})
     })
