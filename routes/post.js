@@ -20,7 +20,7 @@ router.get('/', async(req, res)=>{
     const posts1 = await Post.find({}).sort({date:-1}).skip(1).limit(1)
     const posts2 = await Post.find({}).sort({date:-1}).skip(2).limit(1)
 
-    res.render('index',{posts, posts1, posts2});
+    res.render('index',{title: 'Vicky Interior Designs', posts, posts1, posts2});
 });
 
 
@@ -115,7 +115,7 @@ router.get('/post/:slug', async(req, res)=>{
         const similar = await Post.find({title:q}).sort({date:-1}).limit(3);
        
       
-        res.render('posts/show', {post, recent, popular, similar})
+        res.render('posts/show', {title: `${post.title}`, post, recent, popular, similar})
     }
     catch(err){
         console.log(err.message)
