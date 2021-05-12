@@ -28,20 +28,20 @@ router.get('/about', async(req, res)=>{
     const posts = await Post.find({}).sort({date:-1}).limit(1)
     const posts1 = await Post.find({}).sort({date:-1}).skip(1).limit(1)
     const posts2 = await Post.find({}).sort({date:-1}).skip(2).limit(1)
-    res.render('about', {posts, posts1, posts2})
+    res.render('about', {title: 'About', posts, posts1, posts2})
 })
 
 router.get('/services', async(req, res)=>{
     const posts = await Post.find({}).sort({date:-1}).limit(1)
     const posts1 = await Post.find({}).sort({date:-1}).skip(1).limit(1)
     const posts2 = await Post.find({}).sort({date:-1}).skip(2).limit(1)
-    res.render('services', {posts, posts1, posts2})
+    res.render('services', {title: 'Services - Vicky ', posts, posts1, posts2})
 })
 router.get('/testimonies', async(req, res)=>{
     const posts = await Post.find({}).sort({date:-1}).limit(1)
     const posts1 = await Post.find({}).sort({date:-1}).skip(1).limit(1)
     const posts2 = await Post.find({}).sort({date:-1}).skip(2).limit(1)
-    res.render('testimonies', {posts, posts1, posts2})
+    res.render('testimonies', {title: 'Testimonies - Vicky', posts, posts1, posts2})
 })
 router.get('/blog', async(req, res)=>{
     const posts = await Post.find({}).sort({date:-1}).limit(1);
@@ -51,7 +51,7 @@ router.get('/blog', async(req, res)=>{
     const recent = await Post.find({}).sort({date:-1}).skip(3).limit(1);
     const recent1 = await Post.find({}).sort({date:-1}).skip(4).limit(1);
     const recent2 = await Post.find({}).sort({date:-1}).skip(5).limit(1);
-    res.render('blog', {posts, post1, post2, recent, recent1, recent2})
+    res.render('blog', {title: 'Blog - Vicky', posts, post1, post2, recent, recent1, recent2})
 })
 
 
@@ -115,7 +115,7 @@ router.get('/post/:slug', async(req, res)=>{
         const similar = await Post.find({title:q}).sort({date:-1}).limit(3);
        
       
-        res.render('posts/show', {title: `${post.title}`, post, recent, popular, similar})
+        res.render('posts/show', {title: `${post.title} - Vicky`, post, recent, popular, similar})
     }
     catch(err){
         console.log(err.message)
