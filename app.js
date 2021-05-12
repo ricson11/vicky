@@ -54,8 +54,8 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-app.use(bodyparser.urlencoded({extended: false}))
-app.use(bodyparser.json())
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
 
 app.use(methodOverride('_method'));
 
